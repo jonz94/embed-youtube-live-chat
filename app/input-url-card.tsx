@@ -13,41 +13,43 @@ export function InputUrlCard() {
   const [, setVideoId] = useQueryState('v', { defaultValue: '' })
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>與聊天室建立連線</CardTitle>
-        <CardDescription className="max-w-sm">
-          輸入 YouTube 直播網址，並按下開始，讓小程式可以讀取到聊天室訊息
-        </CardDescription>
-      </CardHeader>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault()
 
-      <CardContent className="flex flex-col gap-6">
-        <Input ref={inputRef} type="text" placeholder="請輸入 YouTube 直播網址" />
-      </CardContent>
+        const value = inputRef.current?.value
 
-      <CardFooter className="flex justify-end">
-        <Button
-          onClick={() => {
-            const value = inputRef.current?.value
+        if (!value) {
+          return
+        }
 
-            if (!value) {
-              return
-            }
+        const { type, id } = parseYoutubeUrl(value)
 
-            const { type, id } = parseYoutubeUrl(value)
+        if (type !== 'video' || id === null) {
+          toast.error('此網址並非 YouTube 直播網址')
 
-            if (type !== 'video' || id === null) {
-              toast.error('此網址並非 YouTube 直播網址')
+          return
+        }
 
-              return
-            }
+        setVideoId(id)
+      }}
+    >
+      <Card>
+        <CardHeader>
+          <CardTitle>與聊天室建立連線</CardTitle>
+          <CardDescription className="max-w-sm">
+            輸入 YouTube 直播網址，並按下開始，讓小程式可以讀取到聊天室訊息
+          </CardDescription>
+        </CardHeader>
 
-            setVideoId(id)
-          }}
-        >
-          🚀 開始
-        </Button>
-      </CardFooter>
-    </Card>
+        <CardContent className="flex flex-col gap-6">
+          <Input ref={inputRef} type="text" placeholder="請輸入 YouTube 直播網址" />
+        </CardContent>
+
+        <CardFooter className="flex justify-end">
+          <Button type="submit">🚀 開始</Button>
+        </CardFooter>
+      </Card>
+    </form>
   )
 }
