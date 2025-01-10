@@ -21,6 +21,8 @@ export function Content() {
 
         <Button
           onClick={() => {
+            // open the YouTube live chat page in a minimal popup window
+            // docs: https://developer.mozilla.org/en-US/docs/Web/API/Window/open#popup
             window.open(`https://www.youtube.com/live_chat?v=${videoId}`, undefined, 'popup=true')
           }}
         >
