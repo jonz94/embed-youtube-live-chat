@@ -1,6 +1,7 @@
 import { ThemeProvider } from '@/components/theme-provider'
 import type { Metadata, Viewport } from 'next'
 import { NuqsAdapter } from 'nuqs/adapters/next/app'
+import { Toaster } from 'sonner'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -23,6 +24,8 @@ export default function RootLayout({
         <NuqsAdapter>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
             {children}
+
+            <Toaster richColors expand closeButton />
           </ThemeProvider>
         </NuqsAdapter>
       </body>

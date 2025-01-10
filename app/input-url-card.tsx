@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input'
 import { parseYoutubeUrl } from '@/lib/parse-youtube-url'
 import { useQueryState } from 'nuqs'
 import { useRef } from 'react'
+import { toast } from 'sonner'
 
 export function InputUrlCard() {
   const inputRef = useRef<HTMLInputElement | null>(null)
@@ -36,7 +37,7 @@ export function InputUrlCard() {
             const { type, id } = parseYoutubeUrl(value)
 
             if (type !== 'video' || id === null) {
-              // toast.error('此網址並非 YouTube 直播網址')
+              toast.error('此網址並非 YouTube 直播網址')
 
               return
             }
