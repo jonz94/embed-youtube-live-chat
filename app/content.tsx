@@ -29,6 +29,10 @@ export function Content() {
         </Button>
       </div>
 
+      {/*
+        the documentation for "Embed a Live Chat" is at the very bottom
+        of the page https://support.google.com/youtube/answer/2524549?hl=en
+      */}
       <iframe
         className="h-full focus-within:outline-none"
         src={`https://www.youtube.com/live_chat?v=${videoId}&embed_domain=${window.location.hostname}`}
