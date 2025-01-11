@@ -29,8 +29,8 @@ export function Content() {
             window.open(`https://www.youtube.com/live_chat?v=${videoId}`, undefined, 'popup=true')
           }}
         >
+          以「獨立視窗」開啟此聊天室
           <ExternalLink />
-          以「獨立視窗」模式開啟此聊天室
         </Button>
 
         <ModeToggle></ModeToggle>
