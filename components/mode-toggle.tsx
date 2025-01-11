@@ -5,6 +5,16 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 
+type Theme = 'system' | 'light' | 'dark'
+
+const THEME_DISPLAY_NAME_LOOKUP_TABLE = {
+  light: '淺色模式',
+  dark: '深色模式',
+  system: '系統預設',
+} as const satisfies Record<Theme, string>
+
+const THEMES = Object.keys(THEME_DISPLAY_NAME_LOOKUP_TABLE) as Theme[]
+
 export function ModeToggle() {
   const { setTheme } = useTheme()
 
@@ -18,9 +28,11 @@ export function ModeToggle() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme('light')}>Light</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme('dark')}>Dark</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme('system')}>System</DropdownMenuItem>
+        {THEMES.map((theme) => (
+          <DropdownMenuItem key={theme} className="text-lg" onClick={() => setTheme(theme)}>
+            {THEME_DISPLAY_NAME_LOOKUP_TABLE[theme]}
+          </DropdownMenuItem>
+        ))}
       </DropdownMenuContent>
     </DropdownMenu>
   )
