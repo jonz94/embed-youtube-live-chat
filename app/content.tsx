@@ -18,7 +18,7 @@ export function Content() {
   return (
     <>
       <div className="flex justify-between">
-        <Button size="icon" variant="ghost" onClick={() => setVideoId('')}>
+        <Button size="icon" variant="outline" onClick={() => setVideoId('')}>
           <ChevronLeft />
         </Button>
 
@@ -41,8 +41,8 @@ export function Content() {
         of the page https://support.google.com/youtube/answer/2524549?hl=en
       */}
       <iframe
-        className="h-full focus-within:outline-none"
-        src={`https://www.youtube.com/live_chat?v=${videoId}&embed_domain=${window.location.hostname}&${resolvedTheme === 'dark' ? 'dark_theme=1' : 'light_theme=1'}`}
+        className="h-full overflow-hidden rounded-md border focus-within:outline-none"
+        src={`https://www.youtube.com/live_chat?v=${videoId}&embed_domain=${window.location.hostname}&${resolvedTheme === 'dark' ? 'light_theme=0&dark_theme=1' : 'light_theme=1&dark_theme=0'}`}
       ></iframe>
     </>
   )
