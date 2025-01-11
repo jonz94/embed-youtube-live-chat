@@ -3,6 +3,7 @@
 import { InputUrlCard } from '@/app/input-url-card'
 import { ModeToggle } from '@/components/mode-toggle'
 import { Button } from '@/components/ui/button'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import { ChevronLeft, ExternalLink } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { useQueryState } from 'nuqs'
@@ -21,6 +22,30 @@ export function Content() {
         <Button size="icon" variant="outline" onClick={() => setVideoId(null)}>
           <ChevronLeft />
         </Button>
+
+        <TooltipProvider delayDuration={250}>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button variant="outline" size="icon" className="text-[red] hover:text-[red]/90" asChild>
+                <a href={`https://www.youtube.com/watch?v=${videoId}`} target="_blank" rel="noopener noreferrer">
+                  <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <title>YouTube</title>
+                    <path
+                      d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </a>
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent id="abc">
+              <p className="flex items-center gap-x-2">
+                開啟此 YouTube 直播
+                <ExternalLink className="size-4" />
+              </p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
 
         <Button
           onClick={() => {
