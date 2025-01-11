@@ -9,7 +9,7 @@ import { useQueryState } from 'nuqs'
 
 export function Content() {
   const { resolvedTheme } = useTheme()
-  const [videoId, setVideoId] = useQueryState('v', { defaultValue: '' })
+  const [videoId, setVideoId] = useQueryState('v', { history: 'push' })
 
   if (!videoId) {
     return <InputUrlCard></InputUrlCard>
@@ -18,7 +18,7 @@ export function Content() {
   return (
     <>
       <div className="flex justify-between">
-        <Button size="icon" variant="outline" onClick={() => setVideoId('')}>
+        <Button size="icon" variant="outline" onClick={() => setVideoId(null)}>
           <ChevronLeft />
         </Button>
 

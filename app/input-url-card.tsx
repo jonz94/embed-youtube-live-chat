@@ -11,7 +11,7 @@ import { toast } from 'sonner'
 
 export function InputUrlCard() {
   const inputRef = useRef<HTMLInputElement | null>(null)
-  const [, setVideoId] = useQueryState('v', { defaultValue: '' })
+  const [, setVideoId] = useQueryState('v', { history: 'push' })
 
   return (
     <form
