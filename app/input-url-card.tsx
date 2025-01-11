@@ -1,5 +1,6 @@
 'use client'
 
+import { ModeToggle } from '@/components/mode-toggle'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
@@ -46,7 +47,9 @@ export function InputUrlCard() {
           <Input ref={inputRef} type="text" placeholder="請輸入 YouTube 直播網址" />
         </CardContent>
 
-        <CardFooter className="flex justify-end">
+        <CardFooter className="flex justify-between">
+          <ModeToggle></ModeToggle>
+
           <Button type="submit">🚀 開始</Button>
         </CardFooter>
       </Card>
