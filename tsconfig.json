@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    /* base Options: */
+    /* base options */
     "esModuleInterop": true,
     "skipLibCheck": true,
     "target": "ES2022",
@@ -27,6 +27,7 @@
       },
     ],
 
+    /* path aliases */
     "paths": {
       "@/*": ["./*"],
     },
