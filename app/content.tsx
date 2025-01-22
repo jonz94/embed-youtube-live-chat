@@ -4,7 +4,7 @@ import { InputUrlCard } from '@/app/input-url-card'
 import { ModeToggle } from '@/components/mode-toggle'
 import { Button } from '@/components/ui/button'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
-import { ChevronLeft, ExternalLink } from 'lucide-react'
+import { LucideChevronLeft, LucideExternalLink } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { useQueryState } from 'nuqs'
 
@@ -20,7 +20,7 @@ export function Content() {
     <>
       <div className="flex justify-between">
         <Button size="icon" variant="outline" onClick={() => setVideoId(null)}>
-          <ChevronLeft />
+          <LucideChevronLeft />
         </Button>
 
         <TooltipProvider delayDuration={250}>
@@ -41,7 +41,7 @@ export function Content() {
             <TooltipContent id="abc">
               <p className="flex items-center gap-x-2">
                 開啟此 YouTube 直播
-                <ExternalLink className="size-4" />
+                <LucideExternalLink className="size-4" />
               </p>
             </TooltipContent>
           </Tooltip>
@@ -55,7 +55,7 @@ export function Content() {
           }}
         >
           以「獨立視窗」開啟此聊天室
-          <ExternalLink />
+          <LucideExternalLink />
         </Button>
 
         <ModeToggle></ModeToggle>
