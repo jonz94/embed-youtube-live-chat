@@ -11,7 +11,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev --turbopack",
-    "fmt": "pnpm run prettier && pnpm run lint",
+    "fmt": "bun run prettier && bun run lint",
     "lint": "next lint --fix",
     "prettier": "prettier --write .",
     "start": "next start"
